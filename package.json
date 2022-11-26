@@ -1,0 +1,21 @@
+{
+  "name": "wge",
+  "version": "1.0.0",
+  "description": "make a web game engine for mobile ",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wov/WGE.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wov/WGE/issues"
+  },
+  "homepage": "https://github.com/wov/WGE#readme"
+}
