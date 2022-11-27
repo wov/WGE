@@ -1,13 +1,14 @@
 // scene.js
 
-export function scene(width,height,aspectRatio){
-    // TODO : 是不是可以不用canvas?
-    const canvas = document.createElement("CANVAS");
 
-    // window.screen.availHeight
-    // window.screen.availWidth
+export let stage = document.createElement('canvas');
+export function init(width,height,aspectRatio){
+
+    // todo: 假设没有设置宽高的时候，也需要设置css。
+    
+    const cssText = (width && height) ? `width:${width}px;height:${height}px;` : '';
+
     // canvas 使用真实的 width\height
-
     const vw = window.screen.availWidth;
     const vh = window.screen.availHeight;
     const dr = window.devicePixelRatio;
@@ -21,9 +22,10 @@ export function scene(width,height,aspectRatio){
     }
 
 
-    canvas.width = width;
-    canvas.height = height;
-    
-    document.body.appendChild(canvas)
+    stage.width = width;
+    stage.height = height;
 
+    stage.style.cssText = cssText;
+    document.body.appendChild(stage);
 }
+
