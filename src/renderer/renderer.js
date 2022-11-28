@@ -9,9 +9,9 @@ let lastTimestamp = 0,
     timestep = 1000 / maxFPS; // ms for each frame
 
 
-export function render(stage,Idle){
+export function render(stage,character){
     s = stage;
-    i = Idle;
+    i = character;
     window.requestAnimationFrame(step);
 }
 
@@ -31,7 +31,8 @@ function step(timestamp){
     // clear canvas..
     s.width = s.width;
     // draw image..
-    ctx.drawImage(i, sx, 0, 128, 128, 0, 0, 128, 128);
+    // TODO: 这里会显示丢失。   
+    i.walk.asset && ctx.drawImage(i.walk.asset, sx, 0, 128, 128, 0, 0, 128, 128);
     x++;
     if(x >= 8){x = 0;}
 
