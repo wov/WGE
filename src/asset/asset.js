@@ -2,13 +2,13 @@
 export function init(character){
 
     // await to image load all .
-    for(let i in character){
+    for(let i in character['assets']){
         (async () => {
             const image = new Image();
-            image.src = character[i].src;
+            image.src = character['assets'][i].src;
             await image.decode();
             // img is ready to use
-            character[i].asset = image;
+            character['assets'][i].asset = image;
         })();
     }
     return character;

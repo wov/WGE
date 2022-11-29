@@ -24,7 +24,7 @@ function step(timestamp){
     lastTimestamp = timestamp;
     
     if(!s) return;
-
+    const status = i.status;
     const ctx = s.getContext("2d");
     // ctx.drawImage(Idle, 0, 0);
     const sx = 128 * x;
@@ -32,8 +32,13 @@ function step(timestamp){
     s.width = s.width;
     // draw image..
     // TODO: 这里会显示丢失。   
-    i.walk.asset && ctx.drawImage(i.walk.asset, sx, 0, 128, 128, 0, 0, 128, 128);
+    // TODO: render 需要读取camera。
+    i['assets'][status].asset && ctx.drawImage(i['assets'][status].asset, sx, 0, 128, 128, 0, 0, 128, 128);
     x++;
     if(x >= 8){x = 0;}
+
+
+// https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/createPattern
+// 使用pattern绘制背景、前景。
 
 }
