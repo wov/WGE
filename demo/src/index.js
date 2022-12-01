@@ -24,24 +24,11 @@ let camera = {
     z: 0
 }
 
-// let backgrounds = [
-//     {
-//         src : "/demo/background/Bright/grass&road.png",
-//         position : {z:0},
-//         repeat : true
-//     },
-//     {
-//         src : "",
-//         position: {z: 100},
-//         repeat : false
-//     }
-// ]
-
+let forward;
 
 let background = {
     src : "/demo/background/Bright/grass&road.png"
 }
-
 
 wge(character,background,camera);
 
@@ -72,7 +59,3 @@ document.body.addEventListener('keyup' , e => {
     if(e.repeat){return;}
     console.log(e.code,e.isComposing);
 })
-
-
-
-

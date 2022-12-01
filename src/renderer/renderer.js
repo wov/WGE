@@ -1,5 +1,8 @@
 // renderer.js
 
+
+import {camera} from './../camera/camera.js';
+
 let x = 0;
 let s;
 let i;
@@ -56,4 +59,10 @@ function step(timestamp){
 // https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/createPattern
 // 使用pattern绘制背景、前景。
 
+}
+
+export function update(){
+
+    console.log(camera.x);
+    console.log('update a rendder');
 }
