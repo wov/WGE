@@ -11,5 +11,18 @@ export function init(character){
             character['assets'][i].asset = image;
         })();
     }
+
     return character;
 }
+
+export function loadBackground(background){
+    (async () => {
+        const image = new Image();
+        image.src = background.src;
+        await image.decode();
+        background.image = image;
+    })();
+
+    return background
+}
+

@@ -28,7 +28,5 @@ export function init(width,height,aspectRatio){
     stage.style.cssText = cssText;
     document.body.appendChild(stage);
 
-
-    
 }
 

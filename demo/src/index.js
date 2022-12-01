@@ -18,25 +18,61 @@ let character = {
     }
 }
 
-let backgrounds = [
-    {
-        z : 1,//使用z轴坐标。。
-        src : "",
-        speed : "" //?
-    }
-]
+let camera = {
+    x: 0,
+    y: 0,
+    z: 0
+}
+
+// let backgrounds = [
+//     {
+//         src : "/demo/background/Bright/grass&road.png",
+//         position : {z:0},
+//         repeat : true
+//     },
+//     {
+//         src : "",
+//         position: {z: 100},
+//         repeat : false
+//     }
+// ]
 
 
-wge(character);
+let background = {
+    src : "/demo/background/Bright/grass&road.png"
+}
+
+
+wge(character,background,camera);
 
 
 document.body.addEventListener('click' , e => {
     character.status = 'walk';
-    // console.log('why u are click me so hard!!')
 })
 
 document.body.addEventListener('dblclick' , e => {
     character.status = 'run';
-    // console.log('why u are click me so hard!!')
 })
+
+
+document.body.addEventListener('keydown' , e => {
+    // only once
+    if(e.repeat){return;}
+
+    if(e.code === 'ArrowRight'){
+        forward = true;
+    }
+
+
+})
+
+
+document.body.addEventListener('keyup' , e => {
+    // only once
+    if(e.repeat){return;}
+    console.log(e.code,e.isComposing);
+})
+
+
+
 
