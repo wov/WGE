@@ -6,9 +6,9 @@ import * as asset from "./asset/asset.js";
 import {camera} from "./camera/camera.js"
 
 
-export function wge(character,background){
+export function wge(character,backgrounds){
     character = asset.init(character);
-    background = asset.loadBackground(background);
+    backgrounds = asset.loadBackground(backgrounds);
     scene.init(200,200);
 
     camera.x = 100;
@@ -17,5 +17,5 @@ export function wge(character,background){
         camera.x = 200;
     },2000 );
 
-    renderer.render(scene.stage,character,background);
+    renderer.render(scene.stage,character,backgrounds);
 }

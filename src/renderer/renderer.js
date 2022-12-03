@@ -6,7 +6,7 @@ import {camera} from './../camera/camera.js';
 let x = 0;
 let s;
 let i;
-let b;
+let bs;
 let position = 0;
 
 let lastTimestamp = 0,
@@ -14,10 +14,10 @@ let lastTimestamp = 0,
     timestep = 1000 / maxFPS; // ms for each frame
 
 
-export function render(stage,character,background){
+export function render(stage,character,backgrounds){
     s = stage;
     i = character;
-    b = background;
+    bs = backgrounds;
     window.requestAnimationFrame(step);
 }
 
@@ -38,9 +38,22 @@ function step(timestamp){
     // TODO : 需要根据z轴判断绘制的优先级。
     // TODO: 读取camera的位置，然后计算各个背景的截取图片
     // 修改使用draw image的方式。pattern 好像并不太适合？
-    if(b && b.image){
-        ctx.drawImage(b.image, position, 0, b.image.width/3, b.image.height, 0, 0, s.width, s.height); 
+    // if(b && b.image){
+    //     ctx.drawImage(b.image, position, 0, b.image.width/3, b.image.height, 0, 0, s.width, s.height); 
+    // }
+
+    if(bs && bs.length  ){
+        // NEEDTOFIXED : 先强制1:1
+        bs.forEach( (b,index) => {
+            let p = position *(5- (5-index))/5 * 1;
+            // TODO : 使用camera 控制输出哪一部分
+
+            b.image && ctx.drawImage(b.image, p, 0, 1080, 1080, 0, 0, s.width, s.height); 
+        })
     }
+
+    // TODO: 使用camera 控制posiiton
+    // return;
 
     if(!s) return;
     const status = i.status;

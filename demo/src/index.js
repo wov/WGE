@@ -26,11 +26,29 @@ let camera = {
 
 let forward;
 
-let background = {
-    src : "/demo/background/Bright/grass&road.png"
-}
 
-wge(character,background,camera);
+let backgrounds = [
+    {
+        z : -1000,
+        src : "/demo/background/Bright/sky.png"
+    },{
+        z : -100,
+        src : "/demo/background/Bright/jungle_bg.png"
+    },{
+
+        z : -50,
+        src : "/demo/background/Bright/grasses.png"
+    },{
+        z : 0,
+        src : "/demo/background/Bright/grass&road.png"
+    },{
+        z : 10,
+        src : "/demo/background/Bright/fireflys.png" 
+    }
+]
+
+
+wge(character,backgrounds,camera);
 
 
 document.body.addEventListener('click' , e => {

@@ -15,14 +15,16 @@ export function init(character){
     return character;
 }
 
-export function loadBackground(background){
-    (async () => {
-        const image = new Image();
-        image.src = background.src;
-        await image.decode();
-        background.image = image;
-    })();
-
-    return background
+export function loadBackground(backgrounds){
+    for(let i in backgrounds){
+        (async () => {
+            const image = new Image();
+            image.src = backgrounds[i].src;
+            await image.decode();
+            // img is ready to use
+            backgrounds[i].image = image
+        })();
+    }
+    return backgrounds
 }
 
