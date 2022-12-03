@@ -21,12 +21,16 @@ export function init(width,height,aspectRatio){
         height = width/aspectRatio;
     }
 
-
     stage.width = width;
     stage.height = height;
-
     stage.style.cssText = cssText;
     document.body.appendChild(stage);
+}
 
+// create pattern
+export function createPattern(img){
+    const ctx = stage.getContext('2d');
+    const pattern = ctx.createPattern(img, "repeat");
+    return pattern;
 }
 

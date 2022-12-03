@@ -42,17 +42,22 @@ function step(timestamp){
     //     ctx.drawImage(b.image, position, 0, b.image.width/3, b.image.height, 0, 0, s.width, s.height); 
     // }
 
+    // TODO: 优化多张图片输出到一张？
+    // TODO: 或者优化成 pattern
     if(bs && bs.length  ){
         // NEEDTOFIXED : 先强制1:1
-        bs.forEach( (b,index) => {
-            let p = position *(5- (5-index))/5 * 1;
-            // TODO : 使用camera 控制输出哪一部分
+        bs.forEach( b => {
+            // TODO : position 换成camera.x
+            let p = -camera.x * s.width / ((camera.z - b.z) * Math.tan(30));
+
+            // console.log(camera.z  b.z)
 
             b.image && ctx.drawImage(b.image, p, 0, 1080, 1080, 0, 0, s.width, s.height); 
         })
     }
 
-    // TODO: 使用camera 控制posiiton
+    // position+=5;
+
     // return;
 
     if(!s) return;
@@ -75,7 +80,6 @@ function step(timestamp){
 }
 
 export function update(){
-
-    console.log(camera.x);
-    console.log('update a rendder');
+    // console.log(camera.x);
+    // console.log('update a rendder');
 }

@@ -1,3 +1,4 @@
+import { camera } from "../../src/camera/camera.js";
 import {  wge } from "../../src/wge.js";
 
 let character = {
@@ -18,14 +19,7 @@ let character = {
     }
 }
 
-let camera = {
-    x: 0,
-    y: 0,
-    z: 0
-}
-
-let forward;
-
+let forwardTimer = null;
 
 let backgrounds = [
     {
@@ -42,7 +36,7 @@ let backgrounds = [
         z : 0,
         src : "/demo/background/Bright/grass&road.png"
     },{
-        z : 10,
+        z : 50,
         src : "/demo/background/Bright/fireflys.png" 
     }
 ]
@@ -64,16 +58,28 @@ document.body.addEventListener('keydown' , e => {
     // only once
     if(e.repeat){return;}
 
-    if(e.code === 'ArrowRight'){
-        forward = true;
+    if(forwardTimer){
+        clearInterval(forwardTimer);
+        forwardTimer = null;
     }
 
 
+    if(e.code === 'ArrowRight'){
+        forwardTimer = setInterval( _ => {
+            camera.x += 1;
+        },20)
+    }else if(e.code === 'ArrowLeft'){
+        forwardTimer = setInterval( _ => {
+            camera.x -= 1;
+        },20)
+    }
 })
 
 
 document.body.addEventListener('keyup' , e => {
     // only once
     if(e.repeat){return;}
-    console.log(e.code,e.isComposing);
+    clearInterval(forwardTimer);
+    forwardTimer = null;
+
 })

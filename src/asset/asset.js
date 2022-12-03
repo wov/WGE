@@ -6,6 +6,8 @@ export function init(character){
         (async () => {
             const image = new Image();
             image.src = character['assets'][i].src;
+
+            // TODO： 使用这个有问题，需要替换掉。
             await image.decode();
             // img is ready to use
             character['assets'][i].asset = image;

@@ -11,7 +11,7 @@ export function wge(character,backgrounds){
     backgrounds = asset.loadBackground(backgrounds);
     scene.init(200,200);
 
-    camera.x = 100;
+    camera.z = 100;
 
     setTimeout( _ => {
         camera.x = 200;
